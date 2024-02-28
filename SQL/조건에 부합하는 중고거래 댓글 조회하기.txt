@@ -1,0 +1,10 @@
+SELECT b.TITLE
+        ,b.BOARD_ID
+        ,r.REPLY_ID
+        ,r.WRITER_ID
+        ,r.CONTENTS
+        ,cast(r.CREATED_DATE as char) "CREATED_DATE"
+from USED_GOODS_BOARD b join USED_GOODS_REPLY r
+on b.BOARD_ID=r.BOARD_ID 
+where substr(cast(b.CREATED_DATE as char),6,2)='10'
+order by r.CREATED_DATE,b.TITLE
